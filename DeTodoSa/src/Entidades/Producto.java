@@ -6,16 +6,19 @@ package Entidades;
 public class Producto {
     
     private int codigo,stock;
-    private String rubro,descripcion;
+    private Rubro rubro;
     private double precio;
+    private String descripcion;
 
-    public Producto(int codigo, int stock, String rubro, String descripcion, double precio) {
+    public Producto(int codigo, int stock, Rubro rubro, double precio, String descripcion) {
         this.codigo = codigo;
         this.stock = stock;
         this.rubro = rubro;
-        this.descripcion = descripcion;
         this.precio = precio;
+        this.descripcion = descripcion;
     }
+
+
 
     public int getCodigo() {
         return codigo;
@@ -33,13 +36,15 @@ public class Producto {
         this.stock = stock;
     }
 
-    public String getRubro() {
+    public Rubro getRubro() {
         return rubro;
     }
 
-    public void setRubro(String rubro) {
+    public void setRubro(Rubro rubro) {
         this.rubro = rubro;
     }
+
+    
 
     public String getDescripcion() {
         return descripcion;
