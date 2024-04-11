@@ -4,6 +4,7 @@
  */
 package views;
 
+
 /**
  *
  * @author tDev
@@ -26,21 +27,77 @@ public class MenuGeneral extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jdpEscritorio = new javax.swing.JDesktopPane();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jmAdministracion = new javax.swing.JMenu();
+        jmiProductos = new javax.swing.JMenuItem();
+        jmiConsultas = new javax.swing.JMenu();
+        jmiRubro = new javax.swing.JMenuItem();
+        jmiNombre = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jdpEscritorioLayout = new javax.swing.GroupLayout(jdpEscritorio);
+        jdpEscritorio.setLayout(jdpEscritorioLayout);
+        jdpEscritorioLayout.setHorizontalGroup(
+            jdpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 669, Short.MAX_VALUE)
+        );
+        jdpEscritorioLayout.setVerticalGroup(
+            jdpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 492, Short.MAX_VALUE)
+        );
+
+        jmAdministracion.setText("Administracion");
+
+        jmiProductos.setText("Productos");
+        jmAdministracion.add(jmiProductos);
+
+        jMenuBar1.add(jmAdministracion);
+
+        jmiConsultas.setText("Consultas");
+
+        jmiRubro.setText("Por Rubro");
+        jmiConsultas.add(jmiRubro);
+
+        jmiNombre.setText("Por Nombre");
+        jmiNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiNombreActionPerformed(evt);
+            }
+        });
+        jmiConsultas.add(jmiNombre);
+
+        jMenuItem3.setText("Por Precio");
+        jmiConsultas.add(jMenuItem3);
+
+        jMenuBar1.add(jmiConsultas);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jdpEscritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jdpEscritorio)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jmiNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiNombreActionPerformed
+       ListadoNombre n = new ListadoNombre();
+       jdpEscritorio.removeAll();
+       jdpEscritorio.repaint();
+       n.setVisible(true);
+       jdpEscritorio.add(n);
+       n.moveToFront();
+    }//GEN-LAST:event_jmiNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +135,13 @@ public class MenuGeneral extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JDesktopPane jdpEscritorio;
+    private javax.swing.JMenu jmAdministracion;
+    private javax.swing.JMenu jmiConsultas;
+    private javax.swing.JMenuItem jmiNombre;
+    private javax.swing.JMenuItem jmiProductos;
+    private javax.swing.JMenuItem jmiRubro;
     // End of variables declaration//GEN-END:variables
 }
