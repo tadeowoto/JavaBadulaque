@@ -83,6 +83,12 @@ public class Producto {
         final Producto other = (Producto) obj;
         return this.codigo == other.codigo;
     }
+
+    
+    public int compareTo(Producto t) {
+        
+        return codigo-t.codigo;
+    }
     
     
 }

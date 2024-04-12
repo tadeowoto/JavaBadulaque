@@ -52,6 +52,11 @@ public class MenuGeneral extends javax.swing.JFrame {
         jmAdministracion.setText("Administracion");
 
         jmiProductos.setText("Productos");
+        jmiProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiProductosActionPerformed(evt);
+            }
+        });
         jmAdministracion.add(jmiProductos);
 
         jMenuBar1.add(jmAdministracion);
@@ -98,6 +103,15 @@ public class MenuGeneral extends javax.swing.JFrame {
        jdpEscritorio.add(n);
        n.moveToFront();
     }//GEN-LAST:event_jmiNombreActionPerformed
+
+    private void jmiProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProductosActionPerformed
+        GestionDeProductos m =  new GestionDeProductos();
+        jdpEscritorio.removeAll();
+        jdpEscritorio.repaint();
+        m.setVisible(true);
+        jdpEscritorio.add(m);
+       
+    }//GEN-LAST:event_jmiProductosActionPerformed
 
     /**
      * @param args the command line arguments
