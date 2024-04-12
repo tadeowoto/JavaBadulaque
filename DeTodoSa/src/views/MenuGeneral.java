@@ -50,6 +50,11 @@ public class MenuGeneral extends javax.swing.JFrame {
         );
 
         jmAdministracion.setText("Administracion");
+        jmAdministracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmAdministracionActionPerformed(evt);
+            }
+        });
 
         jmiProductos.setText("Productos");
         jmiProductos.addActionListener(new java.awt.event.ActionListener() {
@@ -112,6 +117,10 @@ public class MenuGeneral extends javax.swing.JFrame {
         jdpEscritorio.add(m);
        
     }//GEN-LAST:event_jmiProductosActionPerformed
+
+    private void jmAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAdministracionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmAdministracionActionPerformed
 
     /**
      * @param args the command line arguments
