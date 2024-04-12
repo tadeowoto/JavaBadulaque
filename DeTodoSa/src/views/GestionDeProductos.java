@@ -10,7 +10,8 @@ import javax.swing.JOptionPane;
 
 public class GestionDeProductos extends javax.swing.JInternalFrame {
 
-    TreeSet<Producto> productos =new TreeSet<Producto>();
+    private TreeSet<Producto> productos =new TreeSet<Producto>();
+    private Producto auxiliar=null;
     public GestionDeProductos() {
         initComponents();
         cargarComboBox();
@@ -55,6 +56,11 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         jLabel6.setText("Gestion de productos");
 
         jbNuevo.setText("Nuevo");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
 
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +78,11 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
 
         jbEliminar.setText("Eliminar");
         jbEliminar.setEnabled(false);
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/views/lupa.png"))); // NOI18N
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -162,11 +173,32 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
-        // TODO add your handling code here:
+       
+        dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-        // TODO add your handling code here:
+        jButton1.setEnabled(true);
+        int codigo;
+        if(validaEntero(jtfCodigo.getText())){
+            codigo =Integer.parseInt(jtfCodigo.getText());
+        }else{
+            JOptionPane.showMessageDialog(this, "Ingresar un numero");
+            jtfCodigo.requestFocus();
+            return;
+        }
+        for (Producto producto : productos) {
+            if(codigo==producto.getCodigo()){
+                jtfDescripcion.setText(producto.getDescripcion());
+                jtfPrecio.setText(producto.getPrecio()+"");
+                jtfStock.setText(producto.getStock()+"");
+                jcbRubro.setSelectedItem(producto.getRubro());
+                auxiliar=producto;
+                return;
+            }
+            
+        }
+        JOptionPane.showMessageDialog(this, "Producto no encontrado");
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
@@ -219,6 +251,21 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
                 
                 
     }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+        limpiar(); 
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        
+        int opcion=JOptionPane.showConfirmDialog(this, "Confirma Eliminación S/N", "Confirmación",JOptionPane.YES_NO_OPTION);
+                if(opcion==JOptionPane.YES_OPTION){
+                     productos.remove(auxiliar);
+                    JOptionPane.showMessageDialog(this, "Producto Eliminado ");
+                    limpiar();
+                    auxiliar=null;
+                }
+    }//GEN-LAST:event_jbEliminarActionPerformed
     
     private void cargarComboBox(){
         Rubro comestible = new Rubro ("Comestible",1);
@@ -238,6 +285,15 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         Pattern patron= Pattern.compile("^[0-9]+.[0-9]{2}$");
         Matcher m = patron.matcher(num);
         return m.matches();
+    }
+    private void limpiar(){
+        jtfCodigo.setText("");
+        jtfDescripcion.setText("");
+        jtfPrecio.setText("");
+        jtfStock.setText("");
+        jcbRubro.setSelectedIndex(-1);
+        jButton1.setEnabled(false);
+        auxiliar=null;
     }
             
     // Variables declaration - do not modify//GEN-BEGIN:variables
