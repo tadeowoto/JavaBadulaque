@@ -173,7 +173,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         int codigo;
         String descripcion;
         double precio;
-        Rubro rubro;
+     
         int stock;
         
         if(validaEntero(jtfCodigo.getText())){
