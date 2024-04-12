@@ -208,7 +208,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         double precio;
      
         int stock;
-        
+        limpiar();
         if(validaEntero(jtfCodigo.getText())){
             codigo =Integer.parseInt(jtfCodigo.getText());
         }else{

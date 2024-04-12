@@ -23,8 +23,9 @@ public class ListadoRubro extends javax.swing.JInternalFrame {
     public ListadoRubro(TreeSet<Producto> productos) {
         initComponents();
         this.productos=productos;
-        jtTabla.setModel(modeloTabla);
+       
         cargarComboBox();
+        armarCabecera();
     }
 
     /**
@@ -46,11 +47,6 @@ public class ListadoRubro extends javax.swing.JInternalFrame {
 
         jlElegirRubro.setText("Elija rubro:");
 
-        jcbRubro.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jcbRubroItemStateChanged(evt);
-            }
-        });
         jcbRubro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbRubroActionPerformed(evt);
@@ -115,36 +111,26 @@ public class ListadoRubro extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jcbRubroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbRubroItemStateChanged
-        
-        for (Producto prod : productos) {
-            if (prod.getRubro().equals(jcbRubro.getSelectedItem())) {
-                modeloTabla.addRow(new Object[]{prod.getCodigo(),prod.getDescripcion(),prod.getPrecio(),prod.getStock()});
-            }
-        }
-    }//GEN-LAST:event_jcbRubroItemStateChanged
-
     private void jcbRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbRubroActionPerformed
-                System.out.println("holas");
+        borrarFilas();
         for (Producto prod : productos) {
-            System.out.println("hola2");
+            
             if (prod.getRubro().equals(jcbRubro.getSelectedItem())) {
-                System.out.println("hol3");
+                    
                 modeloTabla.addRow(new Object[]{(Integer)prod.getCodigo(),prod.getDescripcion(),(Double)prod.getPrecio(),(Integer)prod.getStock()});
+                /*Vector renglon=new Vector<>();
+                renglon.add(prod.getCodigo());
+                renglon.add(prod.getDescripcion());
+                renglon.add(prod.getPrecio());
+                renglon.add(prod.getStock());
+                
+                modelo.addRow(renglon);
+                */
+            
             }
         }
     }//GEN-LAST:event_jcbRubroActionPerformed
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<Rubro> jcbRubro;
-    private javax.swing.JLabel jlElegirRubro;
-    private javax.swing.JLabel jlRubroTitulo;
-    private javax.swing.JTable jtTabla;
-    // End of variables declaration//GEN-END:variables
-
-        private void cargarComboBox(){
+private void cargarComboBox(){
         Rubro comestible = new Rubro ("Comestible",1);
         Rubro limpieza = new Rubro ("Limpieza",2);
         Rubro perfumeria = new Rubro ("Perfumeria",3);
@@ -153,5 +139,28 @@ public class ListadoRubro extends javax.swing.JInternalFrame {
         jcbRubro.addItem(perfumeria);
         
     }
+    private void armarCabecera(){
+        modeloTabla.addColumn("Codigo");
+        modeloTabla.addColumn("Descripcion");
+        modeloTabla.addColumn("Precio");
+        modeloTabla.addColumn("Stock");
+         jtTabla.setModel(modeloTabla);
+    }
+    
+    private void borrarFilas(){
+        int filas =modeloTabla.getRowCount()-1;
+        for (int f = filas; f >=0; f--) {
+            modeloTabla.removeRow(f);
+        }
+    }
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<Rubro> jcbRubro;
+    private javax.swing.JLabel jlElegirRubro;
+    private javax.swing.JLabel jlRubroTitulo;
+    private javax.swing.JTable jtTabla;
+    // End of variables declaration//GEN-END:variables
+
+        
 
 }

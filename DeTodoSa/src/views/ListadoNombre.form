@@ -98,6 +98,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfCaracteresBuscar">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtfCaracteresBuscarKeyReleased"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
