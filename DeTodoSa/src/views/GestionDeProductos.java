@@ -10,11 +10,12 @@ import javax.swing.JOptionPane;
 
 public class GestionDeProductos extends javax.swing.JInternalFrame {
 
-    private TreeSet<Producto> productos =new TreeSet<Producto>();
+    protected TreeSet<Producto> productos;
     private Producto auxiliar=null;
-    public GestionDeProductos() {
+    public GestionDeProductos(TreeSet<Producto> productos) {
         initComponents();
         cargarComboBox();
+        this.productos=productos;
     }
 
    

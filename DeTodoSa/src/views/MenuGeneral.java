@@ -4,13 +4,16 @@
  */
 package views;
 
+import Entidades.Producto;
+import java.util.TreeSet;
+
 
 /**
  *
  * @author tDev
  */
 public class MenuGeneral extends javax.swing.JFrame {
-
+    protected TreeSet<Producto> productos = new TreeSet<Producto>();
     /**
      * Creates new form MenuGeneral
      */
@@ -69,6 +72,11 @@ public class MenuGeneral extends javax.swing.JFrame {
         jmiConsultas.setText("Consultas");
 
         jmiRubro.setText("Por Rubro");
+        jmiRubro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiRubroActionPerformed(evt);
+            }
+        });
         jmiConsultas.add(jmiRubro);
 
         jmiNombre.setText("Por Nombre");
@@ -110,7 +118,7 @@ public class MenuGeneral extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiNombreActionPerformed
 
     private void jmiProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProductosActionPerformed
-        GestionDeProductos m =  new GestionDeProductos();
+        GestionDeProductos m =  new GestionDeProductos(productos);
         jdpEscritorio.removeAll();
         jdpEscritorio.repaint();
         m.setVisible(true);
@@ -121,6 +129,14 @@ public class MenuGeneral extends javax.swing.JFrame {
     private void jmAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAdministracionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jmAdministracionActionPerformed
+
+    private void jmiRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRubroActionPerformed
+        jdpEscritorio.removeAll();
+        jdpEscritorio.repaint();
+        ListadoRubro l = new ListadoRubro(productos);
+        l.setVisible(true);
+        jdpEscritorio.add(l);
+    }//GEN-LAST:event_jmiRubroActionPerformed
 
     /**
      * @param args the command line arguments

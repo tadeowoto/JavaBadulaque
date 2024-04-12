@@ -3,7 +3,7 @@
 package Entidades;
 
 
-public class Producto {
+public class Producto implements Comparable{
     
     private int codigo,stock;
     private Rubro rubro;
@@ -88,6 +88,11 @@ public class Producto {
     public int compareTo(Producto t) {
         
         return codigo-t.codigo;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return codigo-((Producto)o).codigo;
     }
     
     
