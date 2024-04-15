@@ -35,9 +35,9 @@ public class MenuGeneral extends javax.swing.JFrame {
         jmAdministracion = new javax.swing.JMenu();
         jmiProductos = new javax.swing.JMenuItem();
         jmiConsultas = new javax.swing.JMenu();
-        jmiRubro = new javax.swing.JMenuItem();
         jmiNombre = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jmiPrecio = new javax.swing.JMenuItem();
+        jmiRubro = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,14 +71,6 @@ public class MenuGeneral extends javax.swing.JFrame {
 
         jmiConsultas.setText("Consultas");
 
-        jmiRubro.setText("Por Rubro");
-        jmiRubro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiRubroActionPerformed(evt);
-            }
-        });
-        jmiConsultas.add(jmiRubro);
-
         jmiNombre.setText("Por Nombre");
         jmiNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,8 +79,21 @@ public class MenuGeneral extends javax.swing.JFrame {
         });
         jmiConsultas.add(jmiNombre);
 
-        jMenuItem3.setText("Por Precio");
-        jmiConsultas.add(jMenuItem3);
+        jmiPrecio.setText("Por Precio");
+        jmiPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiPrecioActionPerformed(evt);
+            }
+        });
+        jmiConsultas.add(jmiPrecio);
+
+        jmiRubro.setText("Por Rubro");
+        jmiRubro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiRubroActionPerformed(evt);
+            }
+        });
+        jmiConsultas.add(jmiRubro);
 
         jMenuBar1.add(jmiConsultas);
 
@@ -137,6 +142,15 @@ public class MenuGeneral extends javax.swing.JFrame {
         jdpEscritorio.add(g);
     }//GEN-LAST:event_jmiProductosActionPerformed
 
+    private void jmiPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPrecioActionPerformed
+        jdpEscritorio.removeAll();  
+        jdpEscritorio.repaint();
+        ListadoPrecio p = new ListadoPrecio(productos);
+        p.setVisible(true);
+        jdpEscritorio.add(p);
+        
+    }//GEN-LAST:event_jmiPrecioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -174,11 +188,11 @@ public class MenuGeneral extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JDesktopPane jdpEscritorio;
     private javax.swing.JMenu jmAdministracion;
     private javax.swing.JMenu jmiConsultas;
     private javax.swing.JMenuItem jmiNombre;
+    private javax.swing.JMenuItem jmiPrecio;
     private javax.swing.JMenuItem jmiProductos;
     private javax.swing.JMenuItem jmiRubro;
     // End of variables declaration//GEN-END:variables

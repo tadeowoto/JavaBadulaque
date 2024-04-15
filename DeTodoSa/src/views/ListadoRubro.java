@@ -1,4 +1,3 @@
-
 package views;
 
 import Entidades.Producto;
@@ -6,21 +5,19 @@ import Entidades.Rubro;
 import java.util.TreeSet;
 import javax.swing.table.DefaultTableModel;
 
-
 public class ListadoRubro extends javax.swing.JInternalFrame {
+
     private TreeSet<Producto> productos;
     DefaultTableModel modeloTabla = new DefaultTableModel();
 
-    
     public ListadoRubro(TreeSet<Producto> productos) {
         initComponents();
-        this.productos=productos;
-       
+        this.productos = productos;
+
         cargarComboBox();
         armarCabecera();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -102,10 +99,10 @@ public class ListadoRubro extends javax.swing.JInternalFrame {
     private void jcbRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbRubroActionPerformed
         borrarFilas();
         for (Producto prod : productos) {
-            
+
             if (prod.getRubro().equals(jcbRubro.getSelectedItem())) {
-                    
-                modeloTabla.addRow(new Object[]{(Integer)prod.getCodigo(),prod.getDescripcion(),(Double)prod.getPrecio(),(Integer)prod.getStock()});
+
+                modeloTabla.addRow(new Object[]{(Integer) prod.getCodigo(), prod.getDescripcion(), (Double) prod.getPrecio(), (Integer) prod.getStock()});
                 /*Vector renglon=new Vector<>();
                 renglon.add(prod.getCodigo());
                 renglon.add(prod.getDescripcion());
@@ -113,31 +110,32 @@ public class ListadoRubro extends javax.swing.JInternalFrame {
                 renglon.add(prod.getStock());
                 
                 modelo.addRow(renglon);
-                */
-            
+                 */
+
             }
         }
     }//GEN-LAST:event_jcbRubroActionPerformed
-private void cargarComboBox(){
-        Rubro comestible = new Rubro ("Comestible",1);
-        Rubro limpieza = new Rubro ("Limpieza",2);
-        Rubro perfumeria = new Rubro ("Perfumeria",3);
+    private void cargarComboBox() {
+        Rubro comestible = new Rubro("Comestible", 1);
+        Rubro limpieza = new Rubro("Limpieza", 2);
+        Rubro perfumeria = new Rubro("Perfumeria", 3);
         jcbRubro.addItem(comestible);
         jcbRubro.addItem(limpieza);
         jcbRubro.addItem(perfumeria);
-        
+
     }
-    private void armarCabecera(){
+
+    private void armarCabecera() {
         modeloTabla.addColumn("Codigo");
         modeloTabla.addColumn("Descripcion");
         modeloTabla.addColumn("Precio");
         modeloTabla.addColumn("Stock");
-         jtTabla.setModel(modeloTabla);
+        jtTabla.setModel(modeloTabla);
     }
-    
-    private void borrarFilas(){
-        int filas =modeloTabla.getRowCount()-1;
-        for (int f = filas; f >=0; f--) {
+
+    private void borrarFilas() {
+        int filas = modeloTabla.getRowCount() - 1;
+        for (int f = filas; f >= 0; f--) {
             modeloTabla.removeRow(f);
         }
     }
@@ -148,7 +146,5 @@ private void cargarComboBox(){
     private javax.swing.JLabel jlRubroTitulo;
     private javax.swing.JTable jtTabla;
     // End of variables declaration//GEN-END:variables
-
-        
 
 }
