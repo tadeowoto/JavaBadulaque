@@ -109,7 +109,7 @@ public class MenuGeneral extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmiNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiNombreActionPerformed
-       ListadoNombre n = new ListadoNombre();
+       ListadoNombre n = new ListadoNombre(productos);
        jdpEscritorio.removeAll();
        jdpEscritorio.repaint();
        n.setVisible(true);

@@ -17,9 +17,10 @@ public class ListadoNombre extends javax.swing.JInternalFrame {
      private TreeSet<Producto> productos;
     DefaultTableModel modeloTabla = new DefaultTableModel();
 
-    public ListadoNombre() {
+    public ListadoNombre(TreeSet<Producto> productos) {
         initComponents();
         armarCabecera();
+        this.productos=productos;
     }
 
     
@@ -133,7 +134,6 @@ public class ListadoNombre extends javax.swing.JInternalFrame {
                 renglon.add(producto.getRubro());
                 
                 modeloTabla.addRow(renglon);
-            
             }
         }
         
