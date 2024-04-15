@@ -208,26 +208,26 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         double precio;
      
         int stock;
-        limpiar();
+        
         if(validaEntero(jtfCodigo.getText())){
             codigo =Integer.parseInt(jtfCodigo.getText());
         }else{
-            JOptionPane.showMessageDialog(this, "Ingresar un numero");
+            JOptionPane.showMessageDialog(this, "Ingresar un numero problema en el codigo");
             jtfCodigo.requestFocus();
             return;
         }
         
         if(validaEntero(jtfStock.getText())){
-            stock =Integer.parseInt(jtfCodigo.getText());
+            stock =Integer.parseInt(jtfStock.getText());
         }else{
-            JOptionPane.showMessageDialog(this, "Ingresar un numero");
+            JOptionPane.showMessageDialog(this, "Ingresar un numero problema en el stock");
             jtfStock.requestFocus();
             return;
         }
         if(validaReal(jtfPrecio.getText())){
-            precio =Double.parseDouble(jtfCodigo.getText());
+            precio =Double.parseDouble(jtfPrecio.getText());
         }else{
-            JOptionPane.showMessageDialog(this, "Ingresar un numero");
+            JOptionPane.showMessageDialog(this, "Ingresar un numeroproblema en el precio");
             jtfPrecio.requestFocus();
             return;
         }
@@ -249,7 +249,8 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         else{
             JOptionPane.showMessageDialog(this, "Producto no agregado, ya existe un producto");
         }
-                
+           
+        limpiar();
                 
     }//GEN-LAST:event_jbGuardarActionPerformed
 

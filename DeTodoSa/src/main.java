@@ -18,12 +18,12 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       TreeSet<Producto> productos = new TreeSet<>();
+       /*TreeSet<Producto> productos = new TreeSet<>();
        Rubro com = new Rubro ("comestible",1);
        Producto arroz = new Producto(10, 10, com, 1234, "arroz");
        Producto cafe = new Producto(6, 40, com, 200, "cafe");
        productos.add(arroz);
-       productos.add(cafe);
+       productos.add(cafe);*/
     }
     
 }

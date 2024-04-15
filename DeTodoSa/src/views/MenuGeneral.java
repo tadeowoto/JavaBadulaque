@@ -117,15 +117,6 @@ public class MenuGeneral extends javax.swing.JFrame {
        n.moveToFront();
     }//GEN-LAST:event_jmiNombreActionPerformed
 
-    private void jmiProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProductosActionPerformed
-        GestionDeProductos m =  new GestionDeProductos(productos);
-        jdpEscritorio.removeAll();
-        jdpEscritorio.repaint();
-        m.setVisible(true);
-        jdpEscritorio.add(m);
-       
-    }//GEN-LAST:event_jmiProductosActionPerformed
-
     private void jmAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAdministracionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jmAdministracionActionPerformed
@@ -137,6 +128,14 @@ public class MenuGeneral extends javax.swing.JFrame {
         l.setVisible(true);
         jdpEscritorio.add(l);
     }//GEN-LAST:event_jmiRubroActionPerformed
+
+    private void jmiProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProductosActionPerformed
+        jdpEscritorio.removeAll();
+        jdpEscritorio.repaint();
+        GestionDeProductos g = new GestionDeProductos(productos);
+        g.setVisible(true);
+        jdpEscritorio.add(g);
+    }//GEN-LAST:event_jmiProductosActionPerformed
 
     /**
      * @param args the command line arguments
