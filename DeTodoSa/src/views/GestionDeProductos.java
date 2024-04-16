@@ -195,6 +195,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
                 jtfStock.setText(producto.getStock()+"");
                 jcbRubro.setSelectedItem(producto.getRubro());
                 auxiliar=producto;
+                jbEliminar.setEnabled(true);
                 return;
             }
             
